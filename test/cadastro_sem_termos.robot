@@ -46,4 +46,4 @@ Quando submete o formulário
 
 Então o sistema deve exibir a mensagem de erro
     Wait Until Element Is Visible    ${MENSAGEM_ERRO}    timeout=10s
-    Element Should Contain    ${MENSAGEM_ERRO}    "Você precisa aceitar os termos para prosseguir"
+    Element Should Contain    ${MENSAGEM_ERRO}    "Marque esta caixa se deseja continuar."
