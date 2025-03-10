@@ -47,4 +47,4 @@ Quando submete o formulário
 
 Então o sistema deve exibir a mensagem de erro
     Wait Until Element Is Visible    ${MENSAGEM_ERRO}    timeout=10s
-    Element Should Contain    ${MENSAGEM_ERRO}    "Foto de perfil é obrigatória"
+    Element Should Contain    ${MENSAGEM_ERRO}    "Selecione um arquivo."
