@@ -37,7 +37,7 @@ E preenche o formulário de cadastro corretamente sem selecionar a foto
     Sleep    1s
     Input Text    ${PREFERENCIAS_NAVEGACAO}    Bring Me The Horizon
     Sleep    1s
-    # Não selecionar a foto aqui
+    # SEM FOTO AQUI
     Wait Until Element Is Visible    ${CONSENTIMENTO}    timeout=10s
     Click Element    ${CONSENTIMENTO}
     Sleep    2s
