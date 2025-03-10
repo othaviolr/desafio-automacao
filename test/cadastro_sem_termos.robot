@@ -37,9 +37,8 @@ E preenche o formulário de cadastro corretamente sem aceitar os termos
     Sleep    1s
     Input Text    ${PREFERENCIAS_NAVEGACAO}    Bring Me The Horizon
     Sleep    1s
-    # Escolher a foto de perfil
     Choose File    ${FOTO_PERFIL}    ${EXECDIR}/test/resources/foto_teste.jpg
-    # Não marcar o consentimento para coleta de dados
+    # SEM MARCAR O TERMO
     Sleep    1s
 
 Quando submete o formulário
