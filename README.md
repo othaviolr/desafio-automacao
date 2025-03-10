@@ -1,6 +1,6 @@
 # Desafio de Automação
 
-Este repositório contém os testes de automação realizados para o **Desafio de Automação**, utilizando **Robot Framework** com **SeleniumLibrary**.
+Este repositório contém os testes de automação realizados para o **Desafio de Automação** da Equipe de Teste by: **Marcos**, utilizando **Robot Framework** com **SeleniumLibrary**.
 
 ## 🔧 Tecnologias Usadas
 
