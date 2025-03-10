@@ -6,7 +6,6 @@ Este repositório contém os testes de automação realizados para o **Desafio d
 
 - **Robot Framework**: Framework de automação de testes baseado em palavras-chave.
 - **SeleniumLibrary**: Biblioteca para automação de testes em navegadores web.
-- **GitHub Actions**: Para integração contínua (se necessário).
 
 ## 📂 Estrutura do Repositório
 
