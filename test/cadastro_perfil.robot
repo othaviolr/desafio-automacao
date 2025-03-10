@@ -29,11 +29,11 @@ Então o sistema deve exibir a mensagem de sucesso
 Clicar no botão de Impressão Digital
     Wait Until Element Is Visible    xpath=//button[@id='impressao-digital']    timeout=5s
     Click Element    xpath=//button[@id='impressao-digital']
-    Sleep    1s  # Pequena espera para evitar que a automação fique presa
+    Sleep    1s 
 
 Aguardar e rolar para próximo campo
     Execute Javascript    window.scrollBy(0, 300)
-    Sleep    1s  # Tempo para garantir que o próximo campo esteja visível
+    Sleep    1s  
 
 Selecionar idioma Francês
     Select From List By Value    xpath=//*[@id='idioma']    fr
