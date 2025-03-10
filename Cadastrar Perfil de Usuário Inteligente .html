@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Perfil de Usuário Inteligente</title>
+    <style>
+        /* Resetando margens e padding para todos os elementos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #4b4b4b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        /* Container do formulário */
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px; /* Aumentado para mais espaçamento interno */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 800px; /* Aumentado o tamanho máximo */
+            backdrop-filter: blur(10px);
+            min-width: 500px; /* Largura mínima garantida */
+        }
+
+        /* Título */
+        h1 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #00bcd4;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+        }
+
+        /* Estilo dos campos do formulário */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #bbb;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #222;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="file"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #00bcd4;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.7);
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Botões */
+        .btn {
+            width: 48%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #00bcd4, #0097a7);
+            color: #fff;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #0097a7, #00bcd4);
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.8);
+        }
+
+        .btn-cancel {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .btn-cancel:hover {
+            background-color: #e53935;
+            box-shadow: 0 0 15px rgba(244, 67, 54, 0.7);
+        }
+
+        /* Ações do formulário (centraliza os botões) */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        /* Estilo da Checkbox */
+        .checkbox-label {
+            font-size: 14px;
+            color: #bbb;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Estilo do campo de Impressão Digital */
+        .impressao-digital-container {
+            background: #333;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .impressao-digital-container:hover {
+            background-color: #444;
+        }
+
+        .impressao-digital {
+            width: 100%;
+            height: 100%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/ef/Thumbprint.svg') center no-repeat;
+            background-size: 80%;
+            transition: transform 0.3s ease;
+        }
+
+        .impressao-digital.clicked {
+            transform: scale(1.2);
+            background-color: rgba(0, 188, 212, 0.5);
+        }
+
+        .impressao-digital-text {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #bbb;
+        }
+
+        .impressao-digital-text.active {
+            color: #00bcd4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cadastrar Perfil de Usuário Inteligente</h1>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" maxlength="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
+            </div>
+
+            <!-- Campo de Impressão Digital Fictício -->
+            <div class="form-group">
+                <label for="impressaoDigital">Impressão Digital</label>
+                <div class="impressao-digital-container" id="impressao-digital-container">
+                    <div class="impressao-digital" id="impressao-digital"></div>
+                    <div class="impressao-digital-text" id="impressao-digital-text">Clique para incluir a impressão digital</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="preferenciasNavegacao">Preferências de Navegação</label>
+                <textarea id="preferenciasNavegacao" name="preferenciasNavegacao" maxlength="500"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="fotoPerfil">Foto de Perfil</label>
+                <input type="file" id="fotoPerfil" name="fotoPerfil" accept="image/png, image/jpeg" required>
+            </div>
+
+            <div class="form-group">
+                <label for="idioma">Preferência de Idioma</label>
+                <select id="idioma" name="idioma" required>
+                    <option value="en">Inglês</option>
+                    <option value="pt">Português</option>
+                    <option value="es">Espanhol</option>
+                    <option value="fr">Francês</option>
+                    <option value="de">Alemão</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="privacidade">Nível de Privacidade</label>
+                <select id="privacidade" name="privacidade" required>
+                    <option value="padrao">Padrão</option>
+                    <option value="medio">Médio</option>
+                    <option value="alto">Alto</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="consentimento" name="consentimento" required>
+                    Aceito a coleta de dados para análise personalizada
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-submit">Finalizar Cadastro</button>
+                <button type="button" class="btn btn-cancel" onclick="window.location.href='/'">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Adiciona a impressão digital fictícia ao clicar no campo
+        const impressaoDigitalContainer = document.getElementById('impressao-digital-container');
+        const impressaoDigital = document.getElementById('impressao-digital');
+        const impressaoText = document.getElementById('impressao-digital-text');
+
+        impressaoDigitalContainer.addEventListener('click', () => {
+            impressaoDigital.classList.toggle('clicked');
+            impressaoText.classList.toggle('active');
+            if (impressaoDigital.classList.contains('clicked')) {
+                impressaoText.textContent = 'Impressão digital registrada!';
+            } else {
+                impressaoText.textContent = 'Clique para incluir a impressão digital';
+            }
+        });
+    </script>
+
+</body>
+</html>
