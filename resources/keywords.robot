@@ -23,32 +23,31 @@ Abrir o navegador e acessar o sistema
 Preencher o formulário de cadastro
     Input Text    ${NOME_COMPLETO}    Othávio Lara
     Input Text    ${DATA_NASCIMENTO}    05-02-2003
-    # Clicar na impressão digital
+
     Wait Until Element Is Visible    ${IMPRESSAO_DIGITAL}    timeout=10s
     Click Element    ${IMPRESSAO_DIGITAL}
-    Sleep    2s  # Aguarda a interação
-    # Preencher as preferências de navegação
+    Sleep    2s  
+
     Wait Until Element Is Visible    ${PREFERENCIAS_NAVEGACAO}    timeout=15s
     Wait Until Element Is Enabled    ${PREFERENCIAS_NAVEGACAO}    timeout=10s
     Click Element    ${PREFERENCIAS_NAVEGACAO}
-    Sleep    1s  # Aguarda a interação
-    # Caso as preferências de navegação sejam um campo de texto ou de seleção, vamos tentar preenchê-lo
-    # Se for um campo de texto, simula digitação
+    Sleep    1s  
+
     Input Text    ${PREFERENCIAS_NAVEGACAO}    Bring Me The Horizon
-    Sleep    1s  # Aguarda a digitação
-    # Escolher a foto de perfil
+    Sleep    1s  
+
     Choose File    ${FOTO_PERFIL}    ${EXECDIR}/test/resources/foto_teste.jpg
-    # Selecionar o idioma Francês
+
     Select From List By Value    ${IDIOMA}    fr
     Sleep    1s
-    # Selecionar o nível de privacidade Alto
+
     Select From List By Value    ${PRIVACIDADE}    alto
     Sleep    1s
-    # Marcar o consentimento para coleta de dados
+
     Wait Until Element Is Visible    ${CONSENTIMENTO}    timeout=10s
     Click Element    ${CONSENTIMENTO}
     Sleep    2s
-    # Finalizar o cadastro
+
     Click Element    ${BOTAO_FINALIZAR}
 
 Submeter o formulário
